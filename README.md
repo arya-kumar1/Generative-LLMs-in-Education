@@ -22,3 +22,36 @@ What are the future implications of a deterioration of critical thinking for ind
 
 ## Methodology
 
+##### Track A – Investigating AI Use vs. Critical Thinking
+
+Literature Review: Conduct a systematic scan of existing studies on how generative AI affects student reasoning, self-explanation, and critical thinking outcomes.
+
+Secondary/Aggregate Data: Use only publicly available or de-identified course-level data (e.g., open benchmarks, published statistics) to look for trends in reasoning-intensive tasks before and after AI adoption.
+
+Analysis: Summarize and synthesize findings to map where AI appears to help or harm critical thinking and under what conditions.
+
+##### Track B – Developing the CoT-LLM Tutor
+
+Design: Define the tutor’s behaviour (step-by-step reasoning visible to students, Socratic prompts before answers).
+
+Implementation: Use prompt engineering and/or fine-tuning on open STEM problem sets with expert solutions to produce CoT-style explanations.
+
+Evaluation:
+
+Automated checks for accuracy of final answers and quality of reasoning steps.
+
+Expert review of a sample of outputs for clarity and pedagogical soundness (using existing staff or public rubrics, no new student testing).
+
+Iteratively refine prompts and data until the tutor meets predefined accuracy and explanation-quality benchmarks.
+
+##### Integration
+
+Use insights from Track A to prioritise which risks the CoT-LLM tutor should address (over-reliance on direct answers, lack of self-reflection).
+
+##### Deliverables
+
+Concise report mapping generative-AI use to critical thinking trends from existing literature and data
+Functioning CoT-LLM tutor prototype
+
+## test_wikipedia_api.py Function
+
