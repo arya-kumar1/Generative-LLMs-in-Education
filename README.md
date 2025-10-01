@@ -6,7 +6,7 @@
 
 As generative AI becomes embedded in higher education, concerns have emerged regarding its influence on students’ critical thinking. Critical thinking, defined as the ability to analyze information, make judgments, and form sound decisions, is a skill valued by universities, employers, and society at large, yet may be undermined by students’ reliance on AI for quick solutions. The first phase of this project investigates the extent to which AI usage affects critical thinking ability in STEM undergraduates, drawing from systematic literature reviews and empirical data collection. If findings confirm that generative AI poses risks to critical thinking development, we propose a targeted intervention: an AI tutor that uses chain-of-thought (CoT) prompting to elicit student self-explanations rather than simply revealing solutions. Prior work suggests that self-explanation fosters deeper cognitive processing, while Socratic dialogue models have shown promise in guiding learning. The second phase of the project will implement and evaluate such a tutor, testing whether adaptive, explanation-driven feedback can offset AI’s negative effects on critical thinking while simultaneously improving learning outcomes. By combining exploration of AI’s educational risks with the design of a potential solution, this project seeks to inform how universities can integrate AI in ways that promote both technical skill acquisition and the cultivation of lifelong critical thinking abilities.
 
-## Literature Review
+## [Literature Review](https://github.com/arya-kumar1/Generative-LLMs-in-Education/blob/d2a163c46c2a645ca2f7730caebeec6aa2937281/literature-review.md)
 
 
 
