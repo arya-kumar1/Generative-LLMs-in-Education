@@ -40,9 +40,9 @@ Evaluation:
 
 Automated checks for accuracy of final answers and quality of reasoning steps.
 
-Expert review of a sample of outputs for clarity and pedagogical soundness (using existing staff or public rubrics, no new student testing).
+Expert review of a sample of outputs for clarity and soundness 
 
-Iteratively refine prompts and data until the tutor meets predefined accuracy and explanation-quality benchmarks.
+Iteratively refine prompts and data until the tutor meets accuracy and explanation-quality benchmarks.
 
 ##### Integration
 
