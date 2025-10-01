@@ -31,12 +31,14 @@ This links back to CoT since it's evident that AI and humans both beneift from s
 
 Pithers, Robert T., and Rebecca Soden. "Critical thinking in education: A review." Educational research 42.3 (2000): 237-249.
 [pdf](https://www.tandfonline.com/doi/abs/10.1080/001318800440579)
+
 Melisa, Rahyuni, et al. (2025) examine how ChatGPT influences students’ development of critical thinking, evaluation, and independent judgment in higher education, making it 
 relevant as universities have to decide on their limitations of AI with both the opportunities and risks of integrating it into learning. The paper uses a systematic literature 
 review, using structured database searches (Scopus and ERIC) and algorithmic screening criteria to use data from different publications.
 
 
 Pithers, Robert T., and Rebecca Soden. "Critical thinking in education: A review." Educational research 42.3 (2000): 237-249.
-[pdf](https://www.tandfonline.com/doi/abs/10.1080/001318800440579?casa_token=Vp5pgv1_OlkAAAAA:CJISdbN5cp1w1L0sEMG5dHCVasGKpRwVWVDiBzoPC4rtJ7P2hp7nVkjy7KmxyPB6PXfPgUoNavQw6Q)
+[pdf](https://www.tandfonline.com/doi/abs/10.1080/001318800440579casa_token=Vp5pgv1_OlkAAAAA:CJISdbN5cp1w1L0sEMG5dHCVasGKpRwVWVDiBzoPC4rtJ7P2hp7nVkjy7KmxyPB6PXfPgUoNavQw6Q)
+
 Pithers, Robert T., and Rebecca Soden (2000) review how critical thinking has been defined, taught, and measured across different levels of education. The methodology is a 
 systematic literature review, where the authors analyze and integrate findings from psychological and educational research.
