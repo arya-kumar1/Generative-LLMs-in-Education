@@ -55,3 +55,9 @@ Functioning CoT-LLM tutor prototype
 
 ## test_wikipedia_api.py Function
 
+## Research Question Week 7
+
+What aspects of Wikipedia articles specifically categorize them as a reliable source of learning?
+
+
+
