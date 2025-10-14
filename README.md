@@ -4,7 +4,7 @@
 
 ## Abstract
 
-As generative AI becomes embedded in higher education, concerns have emerged regarding its influence on students’ critical thinking. Critical thinking, defined as the ability to analyze information, make judgments, and form sound decisions, is a skill valued by universities, employers, and society at large, yet may be undermined by students’ reliance on AI for quick solutions. The first phase of this project investigates the extent to which AI usage affects critical thinking ability in STEM undergraduates, drawing from systematic literature reviews and empirical data collection. If findings confirm that generative AI poses risks to critical thinking development, we propose a targeted intervention: an AI tutor that uses chain-of-thought (CoT) prompting to elicit student self-explanations rather than simply revealing solutions. Prior work suggests that self-explanation fosters deeper cognitive processing, while Socratic dialogue models have shown promise in guiding learning. The second phase of the project will implement and evaluate such a tutor, testing whether adaptive, explanation-driven feedback can offset AI’s negative effects on critical thinking while simultaneously improving learning outcomes. By combining exploration of AI’s educational risks with the design of a potential solution, this project seeks to inform how universities can integrate AI in ways that promote both technical skill acquisition and the cultivation of lifelong critical thinking abilities.
+As generative AI continues to integrate into digital learning environments, questions have emerged about how effectively online information sources—particularly Wikipedia—support meaningful learning. While Wikipedia is widely used by students, the educational quality of its articles varies significantly. This project investigates how large language models (LLMs) can be trained to evaluate and classify Wikipedia articles based on their pedagogical value. Drawing from research on instructional design, text coherence, and cognitive load theory, the first phase examines which linguistic and structural features make educational materials effective for learning. The second phase applies these insights to train an LLM that diagnoses whether a given Wikipedia article facilitates understanding or promotes misconceptions. Using the Wikipedia API and OpenAI’s Apps SDK, the system will allow real-time interaction between Wikipedia content and ChatGPT, enabling dynamic analysis and feedback on article quality. By combining educational theory with AI-driven analysis, this project aims to create a tool that not only identifies high-quality learning resources but also informs how AI can enhance open-access educational ecosystems.
 
 ## [Literature Review](https://github.com/arya-kumar1/Generative-LLMs-in-Education/blob/d2a163c46c2a645ca2f7730caebeec6aa2937281/literature-review.md)
 
@@ -12,46 +12,47 @@ As generative AI becomes embedded in higher education, concerns have emerged reg
 
 ## Research Questions
 
-Among college STEM students, does a chain-of-thought LLM that prompts self-explanation result in greater learning gains than a solution-revealing LLM, and can such an approach mitigate the potential decline in critical thinking associated with AI use?
+Which textual and structural characteristics make Wikipedia articles effective for learning according to established educational psychology research?
 
-Is it the universities' role to make students better at critical thinking, or simply provide the technical skills needed for their intended career?
+Can an LLM be trained to accurately diagnose the quality of a Wikipedia article using these characteristics?
 
-If it is the role of the University to help students improve their critical thinking skills, is it also their role to find a solution to the problem of students using generative AI or does that fall on the students to self regulate?
+How does the model’s assessment compare to human expert judgments of article quality?
 
-What are the future implications of a deterioration of critical thinking for individual students?
+What are the broader implications for AI-assisted learning and the reliability of open educational resources?
 
 ## Methodology
 
 ##### Track A – Investigating AI Use vs. Critical Thinking
 
-Literature Review: Conduct a systematic scan of existing studies on how generative AI affects student reasoning, self-explanation, and critical thinking outcomes.
+Literature Review: Conduct a systematic review of studies on instructional text design, including coherence, scaffolding, conceptual density, and explanatory depth.
 
-Secondary/Aggregate Data: Use only publicly available or de-identified course-level data (e.g., open benchmarks, published statistics) to look for trends in reasoning-intensive tasks before and after AI adoption.
+Data Extraction: Compile a labeled dataset of Wikipedia articles rated for educational quality by prior research or expert evaluators.
 
-Analysis: Summarize and synthesize findings to map where AI appears to help or harm critical thinking and under what conditions.
+Feature Analysis: Identify linguistic and structural variables (e.g., readability, hierarchical structure, example density) correlated with effective learning outcomes.
 
 ##### Track B – Developing the CoT-LLM Tutor
 
-Design: Define the tutor’s behaviour (step-by-step reasoning visible to students, Socratic prompts before answers).
+Design: Configure a model that connects to the Wikipedia API via the OpenAI Apps SDK to fetch article content dynamically.
 
-Implementation: Use prompt engineering and/or fine-tuning on open STEM problem sets with expert solutions to produce CoT-style explanations.
+Implementation: Use prompt engineering and fine-tuning to train the model on annotated examples, teaching it to classify articles as educationally effective, neutral, or ineffective.
 
 Evaluation:
 
-Automated checks for accuracy of final answers and quality of reasoning steps.
+Automated metrics: Compare model outputs against expert-labeled datasets using accuracy, precision, and F1 scores.
 
-Expert review of a sample of outputs for clarity and soundness 
+Human review: Expert educators will qualitatively assess a subset of model predictions for validity and reasoning clarity.
 
-Iteratively refine prompts and data until the tutor meets accuracy and explanation-quality benchmarks.
+Iterative refinement: Adjust prompts and fine-tuning parameters based on performance feedback.
 
 ##### Integration
 
-Use insights from Track A to prioritise which risks the CoT-LLM tutor should address (over-reliance on direct answers, lack of self-reflection).
+Combine insights from Track A’s educational text analysis with Track B’s LLM outputs to produce interpretable explanations for why an article is or isn’t effective for learning.
 
 ##### Deliverables
 
-Concise report mapping generative-AI use to critical thinking trends from existing literature and data
-Functioning CoT-LLM tutor prototype
+Comprehensive report summarizing the linguistic and educational features that define high-quality instructional writing.
+
+Functional prototype of the Wiki Diagnostic LLM connected to the Wikipedia API via Apps SDK.
 
 ## test_wikipedia_api.py Function
 
