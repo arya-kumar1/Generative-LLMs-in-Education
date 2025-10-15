@@ -61,6 +61,8 @@ To run:
 3. python -m pip install requests
 4. python wiki_summarizer.py
 
+The program fetches a summary of the wikipedia article the user is interested in reading. This is the first step as now the user is able to choose which article they are interested in and eventually our program will tell them whether the article they choose is good for learning
+
 ## Research Question Week 7
 
 What aspects of Wikipedia articles specifically categorize them as a reliable source of learning?
