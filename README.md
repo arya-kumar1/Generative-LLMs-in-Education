@@ -55,6 +55,11 @@ Comprehensive report summarizing the linguistic and educational features that de
 Functional prototype of the Wiki Diagnostic LLM connected to the Wikipedia API via Apps SDK.
 
 ## test_wikipedia_api.py Function
+To run:
+1. python -m venv .venv
+2. source .venv/bin/activate
+3. python -m pip install requests
+4. python wiki_summarizer.py
 
 ## Research Question Week 7
 
