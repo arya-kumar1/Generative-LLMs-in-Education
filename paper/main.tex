@@ -8,15 +8,15 @@
 \documentclass[sigconf,screen]{acmart}
 
 % Remove ACM copyright/conference info for student papers
-\settopmatter{printacmref=false}
+\settopmatter{printacmref=false} 
 \renewcommand\footnotetextcopyrightpermission[1]{}
 \setcopyright{none}
 \acmConference[CPSC-298 Wikipedia Governance]{Wikipedia Governance Research}{2025}{Chapman University}
 \pagestyle{plain}
-
-% Packages you might need
-\usepackage{graphicx}
-\usepackage{url}       % For \url{} inline links
+ 
+% Packages you might need 
+\usepackage{graphicx} 
+\usepackage{url}       % For \url{} inline links  
 \usepackage{hyperref}
 \usepackage{booktabs}  % For nice tables
 
@@ -46,14 +46,15 @@
 \email{arkumar@chapman.edu, kgarg@chapman.edu}
 
 % Abstract
-\begin{abstract}
-\input{sections/abstract}
-\end{abstract}
 
-% Keywords (relevant to your research)
-\keywords{Wikipedia, governance, [add your keywords here]}
 
 \begin{document}
+
+    \input{sections/abstract}
+  
+    
+    % Keywords (relevant to your research)
+    \keywords{Wikipedia, governance, [add your keywords here]}
 
 \maketitle
 
@@ -87,7 +88,7 @@ We thank \dots for \ldots.
 % Appendix for AI Usage Documentation
 \appendix
 \section{AI Usage Documentation}
-\input{sections/appendix-AI-usage}
+\input{sections/apendix-ai-usage}
 
 \end{document}
 
