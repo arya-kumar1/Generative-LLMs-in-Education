@@ -1,36 +1,26 @@
 % Introduction
 % Structure: Problem/Motivation -> Background -> Research Questions -> Contributions -> Paper Outline
 
-% Motivating example or opening
-[Start with a compelling example or statement about Wikipedia governance]
+\section{Introduction}
 
-% The problem/question
-[What is the specific problem or question you're investigating?]
+\textbf{Motivation.} Wikipedia is among the most frequently consulted learning resources, yet the instructional quality of its articles is uneven. As generative AI becomes embedded in study workflows, there is an opportunity to use large language models (LLMs) not only to summarize content but to \emph{diagnose} whether an article supports effective learning.
 
-% Why it matters
-[Why is this important? Who cares about this problem?]
+\textbf{Background.} Prior work in educational psychology and instructional design highlights the importance of coherence, scaffolding, conceptual density, and self-explanation for learning effectiveness \cite{ekholm2018clarifying, pithers2000critical, catlr2019selfexplanation}. Recent studies further show that AI tutors designed with research-based reasoning strategies can meet or even exceed active learning classrooms \cite{kestin2025aitutor}, and that Socratic, step-by-step guidance (including Chain-of-Thought prompting) can preserve critical thinking while improving problem-solving \cite{ding2024socratic, ibm2025cot}. In parallel, Wikipedia’s governance and quality dynamics have been extensively studied \cite{reagle2010good, worku2020exploring}.
 
-% Research questions
-This paper investigates the following research questions:
+\textbf{Research questions.} This paper investigates:
 \begin{enumerate}
-    \item Your first research question
-    \item Your second research question
-    \item Add more as needed
+  \item Which textual and structural characteristics make Wikipedia articles effective for learning according to established educational psychology research?
+  \item Can an LLM be trained to diagnose the quality of a Wikipedia article using these characteristics?
+  \item How does the model’s assessment compare to human expert judgments of article quality?
+  \item What are the implications for AI-assisted learning and the reliability of open educational resources?
 \end{enumerate}
 
-% Contributions
-The main contributions of this work are:
+\textbf{Contributions.} The main contributions are:
 \begin{itemize}
-    \item First contribution - e.g., novel analysis of X
-    \item Second contribution - e.g., findings about Y
-    \item Third contribution - e.g., methodology for Z
+  \item A synthesis of linguistic/structural features linked to educational effectiveness (e.g., coherence, hierarchy depth, example density, readability).
+  \item A Chain-of-Thought (CoT) LLM “Wiki Diagnostic Tutor” that retrieves Wikipedia content via API and classifies articles as \emph{effective/neutral/ineffective} with interpretable rationales.
+  \item An evaluation comparing automated metrics to expert educator ratings, plus ablations quantifying which features matter most.
+  \item A reproducible pipeline and dataset of article summaries and human rubric scores for future research.
 \end{itemize}
 
-% Paper outline
-The rest of this paper is organized as follows. 
-Section~\ref{sec:related} reviews related work on Wikipedia governance. 
-Section~\ref{sec:methodology} describes our data and methods.
-Section~\ref{sec:results} presents our findings.
-Section~\ref{sec:discussion} discusses implications and limitations.
-Section~\ref{sec:conclusion} concludes and suggests future work.
-
+\textbf{Paper outline.} Section~\ref{sec:related} reviews related work. Section~\ref{sec:methodology} details data and methods. Section~\ref{sec:results} reports findings. Section~\ref{sec:discussion} discusses implications and limitations. Section~\ref{sec:conclusion} concludes.
