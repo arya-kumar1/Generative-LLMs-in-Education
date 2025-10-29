@@ -1,23 +1,16 @@
-% Related Work
-% Organize by themes/categories, not paper-by-paper
-% Show how your work builds on, differs from, or fills gaps in existing work
-
+\section{Related Work}
 \label{sec:related}
 
-% Introduction to related work
-[Brief paragraph introducing the landscape of related research]
+\textbf{Overview.} Our study spans three literatures: (i) instructional quality and writing/learning research, (ii) AI tutoring and reasoning methods (Socratic, CoT), and (iii) Wikipedia governance and quality dynamics.
 
-% Subsection 1: First category of related work
-\subsection{Wikipedia Governance and Community Culture}
+\subsection{Instructional Quality, Writing Attitudes, and Critical Thinking}
+Clear definitions, consistent constructs, and coherence are central to educational quality. Reviews of writing attitudes stress definitional clarity and theoretically grounded measures \cite{ekholm2018clarifying}. Classic reviews of critical thinking in education emphasize how pedagogical design affects higher-order thinking \cite{pithers2000critical}. Practitioner scholarship highlights self-explanation as an effective learning strategy \cite{catlr2019selfexplanation}. In EFL contexts, meta-synthesis work catalogs strategies (e.g., scaffolding, feedback) that improve academic writing and learner motivation \cite{fadhly2022efl}.
 
-Reagle's seminal work on Wikipedia culture~\cite{reagle2010good} examines the collaborative practices and governance mechanisms that enable Wikipedia's success. [Add more discussion of related work here. Use \cite{} to reference papers in your references.bib file]
+\subsection{AI Tutors, Socratic Guidance, and Chain-of-Thought}
+Randomized studies show well-designed AI tutors can outperform in-class active learning on engagement and learning gains \cite{kestin2025aitutor}. For safer pedagogy, LLMs that guide via questions rather than reveal answers can preserve critical thinking \cite{ding2024socratic}. Chain-of-Thought (CoT) prompting operationalizes stepwise reasoning to increase accuracy and interpretability in complex tasks \cite{ibm2025cot}.
 
-% Subsection 2: Second category of related work
-\subsection{etc}
+\subsection{Wikipedia Governance, Bias, and Quality}
+Wikipedia’s collaborative norms and governance shape content quality and reliability \cite{reagle2010good}. Behavioral analyses of deletion practices investigate potential systemic biases and their implications for coverage and quality \cite{worku2020exploring}. These threads motivate automated, theory-informed evaluations of article \emph{educational} quality.
 
-
-% Positioning your work
 \subsection{Our Work in Context}
-
-[Explain how your work differs from or builds upon existing research. What gap are you filling?]
-
+We bridge these strands by (1) turning instructional design findings into measurable text features and (2) embedding those features into a CoT-enabled tutor that retrieves content via the Wikimedia REST API and classifies pedagogical quality with human-interpretable rationales.
