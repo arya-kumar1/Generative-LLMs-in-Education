@@ -1,32 +1,30 @@
-
 \section{Methodology}
+\label{sec:methodology}
 
-
-\subsection*{Overview}
-We follow a two–track design. \textbf{Track A} identifies linguistic/structural correlates of educational quality via literature-driven feature engineering and empirical analysis. \textbf{Track B} implements a CoT-enabled “Wiki Diagnostic Tutor” that retrieves Wikipedia content via API and classifies articles with explanations. An additional Week-7 study evaluates the educational suitability of lead summaries using a simple clarity–comprehensiveness–readability rubric.
+\subsection{Overview}
+This project is divided into two main tracks that work together to explore how AI can evaluate the educational quality of Wikipedia articles. \textbf{Track A} investigates how linguistic and structural features relate to effective learning. \textbf{Track B} develops and tests a large language model (LLM) that can automatically classify articles based on their educational usefulness. Insights from both tracks are combined to build an AI system that can explain why an article may or may not be effective for learning.
 
 \subsection{Data Collection}
-\textbf{Track A.} We assembled a labeled set of Wikipedia articles rated for educational quality by prior research or expert raters (with revision IDs and access dates). We also compiled a review corpus on instructional quality, writing attitudes, and critical thinking \cite{ekholm2018clarifying, pithers2000critical, fadhly2022efl}. Articles were fetched via the Wikimedia REST API summary and content endpoints \cite{wikimediaREST}, with request metadata logged.
+For \textbf{Track A}, we conducted a literature review focused on instructional text design—specifically looking at coherence, scaffolding, conceptual density, and explanatory depth. Based on this review, we compiled a labeled dataset of Wikipedia articles that have been evaluated for educational quality by experts or previous research. Each article’s revision ID and access date were recorded to ensure reproducibility.
 
-\textbf{Track B.} The prototype connects to the Wikipedia API using the OpenAI Apps SDK tool interface to fetch the page summary (and optionally full text) at inference time \cite{openaiAppsSDK}. 
-
-\textbf{Week-7 Summaries Study.} We executed \texttt{wiki\_summarizer.py} on 5–10 topics (e.g., “AI,” “Machine learning,” “Neural network,” “Overfitting,” “Photosynthesis”) and recorded printed summaries and rubric scores (clarity, comprehensiveness, readability; 1–5 scale), producing per-topic and average scores.
+For \textbf{Track B}, we used the Wikipedia API in combination with the OpenAI Apps SDK to retrieve article content in real time. The program fetches summaries of user-selected Wikipedia articles and prepares them for model input. This allows the system to dynamically analyze any article the user is interested in.
 
 \subsection{Data Processing}
-We stripped markup and references, preserved section hierarchy, and tokenized sentences/words. We computed readability (Flesch–Kincaid, Coleman–Liau), hierarchy depth, mean sentences per section, example density (examples per 1{,}000 words), discourse cues (connectives), and lexical diversity. For labels from multiple sources, two expert raters adjudicated disagreements; inter-rater reliability was assessed with Cohen’s~$\kappa$.
+After collection, the articles were cleaned and formatted for consistency. We removed unnecessary markup, standardized section headings, and organized the data into labeled examples for model training. This process ensured that both the linguistic and structural features of each article could be accurately analyzed by the LLM.
 
 \subsection{Analysis Methods}
-\textbf{Track A (Feature Discovery).} We tested associations between features and labels using ANOVA/Kruskal–Wallis and logistic regression with FDR correction; we report effect sizes (Cohen’s~$d$, Cliff’s~$\delta$) and domain robustness.
+In \textbf{Track A}, we examined which linguistic and structural features—such as readability, sentence complexity, and organization—were most closely associated with higher educational quality. These features were identified through existing research and the labeled Wikipedia dataset.
 
-\textbf{Track B (Modeling).} We frame tri-class classification with CoT rationales. The system uses: (i) a Wikipedia retrieval tool; (ii) few-shot CoT prompts emphasizing coherence, scaffolding, example use, and hierarchy; (iii) instruction-tuning on annotated examples. Splits are stratified (70/15/15) at the article level.
+In \textbf{Track B}, we trained and refined a chain-of-thought (CoT) LLM to classify articles as educationally effective, neutral, or ineffective. The model was fine-tuned using annotated examples and prompt engineering to improve its ability to explain reasoning behind each classification.
 
-\textbf{Evaluation.} Automated metrics include accuracy, macro-precision/recall/F1 with 95\% bootstrap CIs. Human experts blind-rate a 10\% sample for validity and reasoning clarity; we compute Spearman~$\rho$ and $\kappa$. Ablations remove Track-A-inspired cues to quantify contribution deltas.
+To evaluate the model, we compared its predictions to expert labels using standard metrics such as accuracy, precision, and F1 score. A subset of model outputs was also reviewed by educators to qualitatively assess reasoning clarity and alignment with human judgment.
 
-\subsection{Week-7 Rubric Results (Baseline)}
-Average summary score across topics $\approx 4.1$/5 (\emph{high suitability}). The most effective summaries followed a “definition $+$ key ideas/applications” pattern (e.g., AI, Photosynthesis), suggesting lead summaries can serve as early indicators for article-level educational quality.
+\subsection{Integration}
+After both tracks were completed, we integrated the findings. The linguistic and structural insights from Track A informed the model’s reasoning process in Track B, allowing the final system to not only score article quality but also provide an interpretable explanation for its decision.
 
-\subsection{System and Reproducibility}
-All scripts (preprocessing, modeling, evaluation) are version-controlled with fixed seeds and an environment lockfile (Python~3.11; \texttt{pandas}, \texttt{numpy}, \texttt{scikit-learn}, \texttt{spacy}, \texttt{textstat}). We log prompts, tool I/O (titles, revision IDs), and outputs. API use complies with Wikimedia Terms of Use; we respect rate limits.
-
-\subsection{Ethical Considerations}
-Data are public Wikipedia content accessed under the Wikimedia Terms of Use. We collect minimum necessary metadata, anonymize rater IDs, and release revision IDs for reproducibility.
+\subsection{Deliverables}
+The project results include:
+\begin{itemize}
+    \item A written report summarizing the linguistic and educational factors that make instructional writing more effective.
+    \item A functional prototype, the \emph{Wiki Diagnostic LLM}, which connects to the Wikipedia API via the OpenAI Apps SDK and evaluates the educational suitability of articles in real time.
+\end{itemize}
