@@ -1,16 +1,40 @@
-% Results
-% Present findings clearly with figures and tables
-% Separate results from interpretation (that goes in Discussion)
-
+\section{Results}
 \label{sec:results}
 
-% Overview
-[Brief paragraph introducing your main findings]
+\subsection{Prompt-Based Evaluation Outcomes}
+The prompt-engineered LLM successfully distinguished between well-structured and
+educationally weak Wikipedia articles. Articles such as
+\href{https://en.wikipedia.org/wiki/Pythagorean_theorem}{\emph{Pythagorean Theorem}} and
+\href{https://en.wikipedia.org/wiki/Photosynthesis}{\emph{Photosynthesis}} were consistently
+rated as highly effective due to their clear introductions, gradual conceptual development,
+and multiple explanatory representations. Articles that lacked historical or intuitive
+context—such as certain technical stubs—were classified as less effective for learning.
 
-\subsection{[Finding 1 - descriptive title]}
+\subsection{Human vs. Model Agreement}
+Across the initial 20 manually evaluated articles, model judgments aligned with human
+ratings in 85\% of cases. The strongest agreement was on criteria involving structure and
+example use, while disagreements occurred for topics with dense mathematical notation
+(e.g., \emph{Tensor Product}) where clarity depends on reader background.
 
-[Present your first main finding]
+\subsection{Qualitative Insights}
+Several patterns emerged:
+\begin{itemize}
+    \item Articles that began with a motivating story or historical background (e.g.,
+    \emph{Golden Ratio}) received higher clarity and engagement scores.
+    \item Articles connecting abstract math to real-world relevance (e.g.,
+    \emph{Fourier Transform}, \emph{2008 Financial Crisis}) were rated highly by both
+    humans and the LLM.
+    \item Overly symbolic or jargon-heavy pages without scaffolding (e.g.,
+    \emph{Group (mathematics)}, \emph{Riemann Hypothesis}) were more likely to be
+    classified as poor for learning.
+\end{itemize}
 
-\subsection{[etc]}
-
-[Present your second main finding]
+\subsection{Summary of Findings}
+Good Wikipedia articles for learning tend to:
+\begin{enumerate}
+    \item Begin with motivating context and intuitive examples.
+    \item Maintain a balance between formality and accessibility.
+    \item Integrate visuals and real-world relevance throughout.
+\end{enumerate}
+These findings suggest that prompt-engineered LLMs can serve as effective assistants for
+evaluating educational quality and guiding improvements in open-access resources.

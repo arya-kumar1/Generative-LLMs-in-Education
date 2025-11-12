@@ -1,4 +1,29 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
 .DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.pdfsync
+*.xdv
+
+# VSCode / Editor files
+.vscode/
+*.swp
+*.swo
