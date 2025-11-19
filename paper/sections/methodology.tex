@@ -2,80 +2,132 @@
 \label{sec:methodology}
 
 \subsection{Overview}
-Our approach combines educational text analysis with LLM-based evaluation in two tracks.
-\textbf{Track A} investigates which linguistic and structural features make Wikipedia
-articles effective for learning. \textbf{Track B} develops a ``Wiki Diagnostic Tutor'' that
-applies those insights to classify and explain article quality. Together, these tracks
-address the research question: \emph{Which Wikipedia articles are good for learning versus
-bad for learning, and how can prompt-engineered LLMs identify that difference?}
+Our approach combines educational text analysis with LLM-based evaluation in two coordinated tracks.
+\textbf{Track A} identifies linguistic and structural features associated with effective
+learning materials. \textbf{Track B} uses these insights to develop a prompt-engineered
+``Wiki Diagnostic Tutor’’ capable of evaluating Wikipedia articles based on their
+pedagogical quality. Together, these tracks address our motivating research question:
+\emph{What makes a Wikipedia article “good for learning” versus “bad for learning,” and can
+LLMs reliably detect that difference?}
+
+This broad question is made measurable through an operationalized question:
+\emph{Given a set of Wikipedia articles, can a Large Language Model consistently evaluate
+them using a rubric derived from cognitive-science research on how students learn?}
+
+\subsection{From Research Question to Data}
+“Learning quality’’ is not directly observable in Wikipedia data. Wikipedia exposes
+no built-in measures of educational effectiveness, so we construct a bridge from the
+abstract question to analyzable data. Following education and cognitive-science research,
+we translate “good for learning’’ into a set of measurable instructional proxies. These
+proxies allow us to convert an unmeasurable concept into structured data that an LLM can
+evaluate:
+
+\begin{quote}
+\textbf{Unmeasurable concept} $\rightarrow$ \textbf{Instructional proxies} $\rightarrow$
+\textbf{LLM evaluation} $\rightarrow$ \textbf{Numeric score} $\rightarrow$ \textbf{Interpretation}.
+\end{quote}
+
+\subsection{Evaluation Criteria (Instructional Proxies)}
+Based on established learning-science principles (e.g., scaffolding, motivation, multimodal
+representation), we operationalize “learning quality’’ using ten measurable proxies:
+
+\begin{enumerate}
+    \item Engaging Introduction
+    \item Real-World Relevance
+    \item Motivating Examples
+    \item Visual and Symbolic Support
+    \item Gradual Progression (simple \textrightarrow{} general)
+    \item Balanced Approach (intuition + rigor)
+    \item Multiple Representations (verbal, symbolic, visual)
+    \item Comprehensive but Accessible Structure
+    \item Multiple Proofs or Perspectives
+    \item Applications and Impact
+\end{enumerate}
+
+These criteria form both our human rating rubric and the scoring dimensions used by the
+LLM. Limitations include possible subjectivity, variation across domains, and the risk of
+LLM hallucination; we mitigate these with the validation steps described below.
 
 \subsection{Data Collection}
-For \textbf{Track A}, we performed a systematic review of research on instructional
-text design, focusing on coherence, scaffolding, and conceptual density. Using these
-insights, we defined a set of criteria describing what makes an article effective for
-learning (see below). We then compiled a labeled dataset of Wikipedia articles drawn from
-topics in mathematics, computer science, and economics that were manually judged as
-``good for learning.'' Example articles include:
-\begin{itemize}
-    \item \href{https://en.wikipedia.org/wiki/Pythagorean_theorem}{Pythagorean Theorem},
-    \href{https://en.wikipedia.org/wiki/Golden_ratio}{Golden Ratio},
-    \href{https://en.wikipedia.org/wiki/Fibonacci_sequence}{Fibonacci Sequence}
-    \item \href{https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors}{Eigenvalues and Eigenvectors},
-    \href{https://en.wikipedia.org/wiki/Neural_network_(machine_learning)}{Neural Networks},
-    \href{https://en.wikipedia.org/wiki/Machine_learning}{Machine Learning}
-    \item \href{https://en.wikipedia.org/wiki/2008_financial_crisis}{2008 Financial Crisis},
-    \href{https://en.wikipedia.org/wiki/Investment_banking}{Investment Banking}
-\end{itemize}
-Each article’s revision ID and access date were recorded for reproducibility.
+For \textbf{Track A}, we reviewed research on instructional text design and identified
+features aligned with the proxies above. Guided by these findings, we compiled a curated
+set of Wikipedia articles generally regarded as strong educational resources. These span
+mathematics (e.g., Pythagorean Theorem, Eigenvalues and Eigenvectors, Taylor Series),
+computer science and machine learning (e.g., Neural Networks, Machine Learning),
+finance/economics (e.g., 2008 Financial Crisis, Investment Banking), and technology (e.g.,
+Arch Linux). We recorded article titles, revision IDs, and access dates for reproducibility.
 
-For \textbf{Track B}, we used the Wikipedia API, accessed via the OpenAI Apps SDK
-\cite{openaiAppsSDK}, to dynamically retrieve article summaries and content. The prototype
-uses prompt engineering to help LLMs reason step-by-step about whether an article
-satisfies the educational criteria, rather than simply classifying it directly.
+For \textbf{Track B}, we retrieved article summaries and content using the Wikipedia API
+via the OpenAI Apps SDK \cite{openaiAppsSDK}. This enables the model to access fresh
+Wikipedia content at inference time.
 
-\subsection{Evaluation Criteria}
-Articles were judged on ten instructional dimensions derived from cognitive and
-instructional design literature:
-\begin{enumerate}
-    \item \textbf{Engaging Introduction} – presence of historical context or motivation.
-    \item \textbf{Real-World Relevance} – clear explanation of why the topic matters.
-    \item \textbf{Motivating Examples} – intuitive examples before formal definitions.
-    \item \textbf{Visual and Symbolic Support} – inclusion of equations, images, or diagrams.
-    \item \textbf{Gradual Progression} – movement from simple to abstract ideas.
-    \item \textbf{Balanced Approach} – mix of intuitive and formal reasoning.
-    \item \textbf{Multiple Representations} – verbal, visual, and symbolic presentation.
-    \item \textbf{Comprehensive but Accessible} – complete coverage without excessive jargon.
-    \item \textbf{Multiple Proofs and Perspectives} – variety of explanations or derivations.
-    \item \textbf{Applications and Impact} – real-world uses or implications.
-\end{enumerate}
-These dimensions informed both manual ratings and the prompt templates used for model
-evaluation.
-
-\subsection{Data Processing}
-We removed markup, standardized section headings, and converted text to plain UTF-8 for
-tokenization. Articles were formatted into JSON objects containing title, revision ID, and
-text fields. For reproducibility, all preprocessing and classification scripts are available
-in our GitHub repository:
+All raw article text, LLM outputs, and execution scripts are stored in our GitHub
+repository:
 \href{https://github.com/arya-kumar1/Generative-LLMs-in-Education}{\texttt{Generative-LLMs-in-Education}}.
 
+\subsection{LLM Scoring System}
+We designed a structured LLM-based scorecard that rates each article on all ten criteria.
+Each criterion is scored on a 1–5 scale using a mini-rubric (included in the GitHub repo).
+
+\textbf{Prompt structure.} For each Wikipedia article, the LLM receives:
+\begin{itemize}
+    \item the article’s text,
+    \item the ten instructional proxies, and
+    \item instructions to provide both a score and a short justification for each proxy.
+\end{itemize}
+
+The model outputs a JSON object containing all scores and explanations. This structure
+ensures consistent formatting and easy downstream analysis.
+
+\subsection{Data Processing}
+We removed markup, normalized headings, and converted articles to plain UTF-8. Each
+article was represented as a JSON object containing title, revision ID, text, and the
+LLM-generated evaluations. Processing scripts are available in the GitHub repository.
+
+\subsection{Validation of LLM Outputs}
+Because LLMs may hallucinate or inconsistently interpret content, we performed three
+validation steps:
+
+\begin{enumerate}
+    \item \textbf{Consistency Check:} Each article was evaluated three times; high-variance
+    cases were flagged.
+    \item \textbf{Human Spot-Checks:} We manually reviewed a subset of evaluations to ensure
+    justifications referenced real article content and that no nonexistent diagrams or
+    proofs were claimed.
+    \item \textbf{Grounding Verification:} When the LLM made claims about specific features
+    (e.g., “this article presents multiple proofs”), we checked the article directly.
+\end{enumerate}
+
+These procedures ensure that the results reflect grounded evaluations rather than
+unexamined LLM interpretations.
+
 \subsection{Analysis Methods}
-In \textbf{Track A}, we analyzed relationships between textual features (readability,
-sentence length, and structure) and perceived educational quality through descriptive
-comparisons and manual rubric scoring.
+In \textbf{Track A}, we used descriptive analysis to compare article structure,
+readability, and instructional features with rubric scores. These comparisons help reveal
+common patterns among articles that are “good for learning.”
 
-In \textbf{Track B}, we applied prompt-engineered LLMs using a chain-of-thought reasoning
-approach. The model received both the article text and the instructional criteria and was
-asked to produce an evaluation explaining whether the article is pedagogically effective,
-neutral, or ineffective. Evaluation metrics included precision, recall, and qualitative
-interpretation accuracy compared to human-labeled judgments.
+In \textbf{Track B}, we analyzed the LLM-generated scores across all criteria to identify
+which proxies are most predictive of strong educational quality. We also used qualitative
+analysis of the justification texts to understand how the model interprets “good learning
+design.”
 
-\subsection{Integration and Reproducibility}
-Outputs from Track A informed prompt phrasing in Track B, ensuring the model aligned with
-human-defined learning features. All code, example prompts, and result logs are available at
-\href{https://github.com/arya-kumar1/Generative-LLMs-in-Education}{\texttt{github.com/arya-kumar1/Generative-LLMs-in-Education}},
-which includes a README detailing dataset structure, API setup, and usage examples.
+\subsection{Reproducibility}
+To ensure full reproducibility:
+\begin{itemize}
+    \item all prompts, scripts, and scoring rubrics are in the GitHub repository;
+    \item a single script (\texttt{evaluate\_articles.py}) regenerates all results automatically;
+    \item no LLM outputs are edited manually—JSON files in the repo are verbatim model outputs;
+    \item instructions for rerunning the full pipeline are provided in the README, including:
+\end{itemize}
+
+\begin{quote}
+\texttt{python evaluate\_articles.py --model gpt-4o-mini --articles articles.txt}
+\end{quote}
+
+Given the same model version, results can be reproduced exactly.
 
 \subsection{Ethical Considerations}
 All data consist of publicly available Wikipedia content accessed under the Wikimedia
-\href{https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use}{Terms of Use}.
-No personal data were used, and human evaluators remained anonymous.
+\href{https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use}{Terms of Use}. No personal
+data were used. Human evaluators (for spot-checks) were anonymous, and no identifying
+information was collected or stored.

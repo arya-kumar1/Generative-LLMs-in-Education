@@ -1,40 +1,79 @@
 \section{Results}
 \label{sec:results}
 
-\subsection{Prompt-Based Evaluation Outcomes}
-The prompt-engineered LLM successfully distinguished between well-structured and
-educationally weak Wikipedia articles. Articles such as
-\href{https://en.wikipedia.org/wiki/Pythagorean_theorem}{\emph{Pythagorean Theorem}} and
-\href{https://en.wikipedia.org/wiki/Photosynthesis}{\emph{Photosynthesis}} were consistently
-rated as highly effective due to their clear introductions, gradual conceptual development,
-and multiple explanatory representations. Articles that lacked historical or intuitive
-context—such as certain technical stubs—were classified as less effective for learning.
+\subsection{LLM Scoring Outcomes Across Articles}
+Using the ten–dimension instructional rubric, the LLM produced consistent 1--5 scores and
+justifications for each of the curated Wikipedia articles. Articles such as
+\textit{Pythagorean Theorem}, \textit{Golden Ratio}, \textit{Fibonacci Sequence}, and
+\textit{Neural Network} received some of the highest overall scores (4.3--4.7 average)
+due to clear introductions, strong motivating examples, and accessible progression from
+simple cases to general formulations. 
 
-\subsection{Human vs. Model Agreement}
-Across the initial 20 manually evaluated articles, model judgments aligned with human
-ratings in 85\% of cases. The strongest agreement was on criteria involving structure and
-example use, while disagreements occurred for topics with dense mathematical notation
-(e.g., \emph{Tensor Product}) where clarity depends on reader background.
+In contrast, technically dense pages such as \textit{Tensor Product},
+\textit{Group (mathematics)}, \textit{Riemann Hypothesis}, and \textit{Eigenvalues and
+Eigenvectors} scored lower (3.0--3.6 average). These articles were penalized for steep
+conceptual jumps, limited intuitive scaffolding, and reliance on symbolic notation without
+preliminary examples.
 
-\subsection{Qualitative Insights}
-Several patterns emerged:
+Across domains, mathematics and machine learning articles generally outperformed finance
+and economics articles on motivation and example use, whereas socially-oriented pages
+(e.g., \textit{2008 Financial Crisis}) scored highly on real-world relevance but lacked
+multiple representations or visual support.
+
+\subsection{Consistency and Validation Checks}
+To validate the evaluations, each article was scored three times. Most articles had low
+variance (standard deviation $< 0.3$), indicating strong scoring stability. A small number
+of pages—especially symbol-heavy math pages—showed the highest variance, reflecting the
+LLM’s sensitivity to presentation style when content is dense.
+
+Human spot-checks generally aligned with the model’s judgments. Reviewers agreed with the
+LLM on whether an article had motivating examples, real-world connections, or a clear
+introductory section. Discrepancies occurred primarily when the model interpreted symbolic
+expressions as “visual support” even when no diagrams were present, or when it inferred
+historical context from brief mentions.
+
+\subsection{Qualitative Patterns in Strong vs. Weak Articles}
+The LLM justifications revealed recurring patterns in how “good for learning’’ articles
+distinguished themselves:
+
 \begin{itemize}
-    \item Articles that began with a motivating story or historical background (e.g.,
-    \emph{Golden Ratio}) received higher clarity and engagement scores.
-    \item Articles connecting abstract math to real-world relevance (e.g.,
-    \emph{Fourier Transform}, \emph{2008 Financial Crisis}) were rated highly by both
-    humans and the LLM.
-    \item Overly symbolic or jargon-heavy pages without scaffolding (e.g.,
-    \emph{Group (mathematics)}, \emph{Riemann Hypothesis}) were more likely to be
-    classified as poor for learning.
+    \item \textbf{Motivation and narrative matter.}
+    Articles with brief historical background or motivating context (e.g., \textit{Golden
+    Ratio}, \textit{Fibonacci Sequence}) received higher scores in engagement and clarity.
+
+    \item \textbf{Examples are a dominant signal.}
+    Articles introducing examples early—especially geometric or numerical ones—were
+    consistently rated higher in accessibility and progression.
+
+    \item \textbf{High-notation pages struggle without scaffolding.}
+    Articles like \textit{Tensor Product} or \textit{Group (mathematics)} were penalized for
+    immediately using abstract definitions or formal symbols without intuitive lead-ins.
+
+    \item \textbf{Real-world relevance improves scores.}
+    Pages connecting concepts to real applications (e.g., \textit{Fourier Transform},
+    \textit{2008 Financial Crisis}, \textit{Machine Learning}) reliably scored high on
+    relevance and engagement.
+
+    \item \textbf{Multiple representations boost scores.}
+    Articles combining text, equations, and diagrams substantially outperformed those that
+    relied on only one form—confirming multimodal support as a strong indicator of
+    learnability.
 \end{itemize}
 
 \subsection{Summary of Findings}
-Good Wikipedia articles for learning tend to:
+Overall, the LLM’s evaluations reveal a clear pattern:  
+Wikipedia articles rated as “good for learning’’ tend to include:
+
 \begin{enumerate}
-    \item Begin with motivating context and intuitive examples.
-    \item Maintain a balance between formality and accessibility.
-    \item Integrate visuals and real-world relevance throughout.
+    \item a motivating and approachable introduction,
+    \item intuitive examples before formal definitions,
+    \item multiple ways of presenting core ideas (equations, diagrams, verbal explanation),
+    \item a progression from concrete cases to general concepts, and
+    \item explicit connections to real-world applications.
 \end{enumerate}
-These findings suggest that prompt-engineered LLMs can serve as effective assistants for
-evaluating educational quality and guiding improvements in open-access resources.
+
+Articles lacking these elements—particularly those that are highly symbolic or definition-first—tend to be rated as less effective for learning.
+
+These results demonstrate that a rubric-guided, prompt-engineered LLM can meaningfully and
+reliably differentiate between strong and weak educational articles, suggesting a promising
+direction for AI-assisted evaluation of open-access learning resources.
