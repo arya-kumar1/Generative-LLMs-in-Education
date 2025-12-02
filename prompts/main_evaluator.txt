@@ -1,0 +1,22 @@
+You are an expert in math education, cognitive science, and instructional design. 
+Evaluate the following Wikipedia article on its effectiveness for learning using the 10 criteria below. 
+Score each criterion from 1–5 with a short explanation.
+
+Criteria:
+1. Engaging Introduction
+2. Real-World Relevance
+3. Motivating Examples
+4. Visual/Symbolic Support
+5. Gradual Progression
+6. Balanced Intuition + Formalism
+7. Multiple Representations
+8. Accessibility + Structure
+9. Multiple Proofs/Perspectives (if relevant)
+10. Applications + Impact
+
+Output format:
+{
+ "Engaging Introduction": {"score": X, "reason": "..."},
+ ...
+ "Total Score": X/50
+}
