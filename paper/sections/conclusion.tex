@@ -1,14 +1,10 @@
-% Conclusion
-% Briefly summarize: problem, approach, findings, contributions
-% End with a forward-looking statement
 
 \label{sec:conclusion}
 
-[Restate the problem you investigated]
+This study addressed the problem of identifying which Wikipedia articles are effective for learning by developing a systematic, reproducible method for evaluating pedagogical quality. Because Wikipedia remains a primary reference source for students and self-directed learners, understanding the characteristics that make an article educationally effective is an important prerequisite for improving the accessibility and instructional value of open-access knowledge.
 
-[Summarize your approach and key findings]
+We operationalized the abstract notion of “learning quality’’ through a ten-dimension rubric grounded in cognitive-science and instructional-design literature. Using this rubric, we implemented a prompt-engineered LLM evaluation pipeline capable of generating structured, criterion-based assessments for a curated set of articles. Our methodology integrates principled rubric design, repeated model scoring for stability checks, and human verification of LLM justifications. The resulting evaluations reveal consistent patterns: articles with contextualized introductions, intuitive examples, multimodal representations, and clear conceptual progression were rated highest, whereas symbol-heavy or definition-first articles without scaffolding were consistently rated lower.
 
-[Emphasize your main contributions]
+The contributions of this work are threefold. First, we present a principled operationalization of pedagogical quality suitable for automated assessment. Second, we demonstrate that a rubric-guided LLM can provide stable, interpretable evaluations aligned with expert judgment. Third, we provide an openly accessible, fully reproducible framework—including prompts, scripts, and raw evaluation outputs—that can be extended to larger article sets or other open-access learning resources.
 
-[End with a forward-looking statement about the importance of your work or future directions]
-
+Overall, this work shows that LLMs can serve as effective analytical tools for evaluating instructional materials, offering a scalable complement to purely human review. Future extensions may include broader article coverage, multi-model validation, integration with editor workflows, or the development of automated suggestions for improving weak articles. As LLM capabilities continue to advance, their role in supporting the quality and accessibility of public knowledge resources is poised to expand significantly.

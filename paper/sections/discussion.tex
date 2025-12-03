@@ -1,21 +1,25 @@
-% Discussion
-% Interpret your results, discuss implications, acknowledge limitations
-
+\section{Discussion}
 \label{sec:discussion}
 
 \subsection{Interpretation of Results}
+The results demonstrate that a rubric-guided, prompt-engineered LLM can reliably evaluate the educational quality of Wikipedia articles. Across twenty diverse topics, the model consistently identified the same pedagogical signals that human reviewers rely on: presence of motivation, clarity of explanation, use of examples, gradual development of ideas, and real-world relevance. Articles that embodied these features scored the highest, while pages that were symbolic, definition-first, or lacking intuitive context scored noticeably lower.
 
-[What do your findings mean? How do they answer your research questions?]
+These patterns directly answer the research question. ``Good for learning’’ articles exhibit accessible structure, multimodal representation, and a clear narrative arc. ``Bad for learning’’ articles tend to omit examples, rely on abstract notation, or introduce concepts without scaffolding. The LLM’s outputs matched these distinctions in both quantitative scores and qualitative justifications, showing that modern LLMs can approximate human judgments about pedagogical effectiveness when provided with explicit learning criteria.
 
 \subsection{Implications}
-
-[What are the broader implications of your work? For Wikipedia? For research? For practice?]
+This work highlights several broader implications for Wikipedia and for the study of AI-assisted learning:
+\begin{itemize}
+    \item \textbf{Scalable evaluation.} Wikipedia contains millions of articles, making manual assessment of educational quality infeasible. The LLM-based rubric system provides a scalable method for identifying which articles serve as strong learning resources and which may need revision.
+    
+    \item \textbf{Guidance for editors.} The instructional criteria identified—motivation, examples, progression, multimodal support—offer concrete targets for improving educational content. Editors could use such automated feedback to strengthen articles or flag pages for improvement.
+    
+    \item \textbf{AI as an educational reviewer.} This project demonstrates how LLMs can serve as meta-evaluators of educational material rather than as content generators. Instead of producing explanations directly, the model assesses whether existing sources foster understanding.
+    
+    \item \textbf{Open-access learning ecosystems.} As Wikipedia is one of the most widely used reference resources worldwide, improving its pedagogical quality could have large-scale impact on informal learning, STEM education, and public knowledge.
+\end{itemize}
 
 \subsection{Limitations}
-
-[Be honest about limitations: data constraints, methodological issues, scope boundaries, etc.]
+Several limitations qualify these findings. First, the dataset consists of a curated subset of articles and does not represent the full diversity of Wikipedia’s domains or quality levels; model behavior may differ on longer or more heterogeneous pages. Second, the rubric itself reflects instructional design principles grounded primarily in mathematics and technical education, which may not fully generalize to humanities or arts articles. Third, LLM evaluations, while generally stable, occasionally hallucinated the presence of examples or visual elements, highlighting the need for grounding checks. Finally, the model’s judgments depend on the specific LLM version used; updates or model drift could produce slightly different scores in the future.
 
 \subsection{Future Work}
-
-[What questions remain? What should future research investigate?]
-
+Several avenues for future research could extend this work. A natural next step is to broaden the dataset to include hundreds or thousands of Wikipedia pages across all major topic areas, enabling domain-specific analysis of what makes articles effective for learning. Another direction is to integrate retrieval-augmented verification so that the LLM must explicitly quote or reference sections of the article when justifying its scores. In addition, a community-facing tool could be developed to provide real-time pedagogical feedback to Wikipedia editors. Finally, further research could examine whether LLM-based evaluations correlate with real learning outcomes by conducting controlled user studies with students. Together, these extensions would deepen our understanding of how AI can support the creation and maintenance of high-quality, open-access educational resources.

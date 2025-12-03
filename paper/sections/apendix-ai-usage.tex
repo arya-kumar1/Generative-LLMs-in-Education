@@ -1,30 +1,49 @@
-% AI Usage Documentation
-% Document how you used AI tools in your research and writing process
-% Be transparent and specific
+\section*{Appendix A: AI Usage Documentation}
 
-\subsection{Literature Review}
+\subsection{A.1 Literature Review}
 
-[Describe how you used AI agents for literature review. Reference your .prompt.md file.]
+AI tools (primarily ChatGPT and Claude) were used to assist in processing background readings related to Wikipedia article quality, governance, and evaluation frameworks. The models helped summarize long sections of Wikipedia policy pages (e.g., \emph{Featured Article Criteria}, \emph{Neutral Point of View}, \emph{Reliable Sources}) and academic papers discussing online knowledge quality. These summaries were used only as an intermediate step: all AI-generated descriptions were cross-checked against the original documents to ensure accuracy.
 
-Example: We used an AI agent workflow (see the file \href{}{literature-review.prompt.md}) to systematically process research papers. The agent extracted summaries, methodology descriptions, and key findings from papers in our bibliography.
+We additionally employed a structured prompting workflow (see the file \texttt{literature-review.prompt.md} in our repository) to extract methodological themes and compare evaluation criteria across prior studies. AI provided organizational support in synthesizing key ideas, but the final interpretations were written and verified by the authors.
 
-\subsection{Data Analysis}
+\subsection{A.2 Data Analysis}
 
-[If you used AI for data analysis, code generation, or statistical work, document it here]
+AI assistance was used during the analysis of our rubric-based evaluation outputs. Specifically, ChatGPT helped generate small Python code snippets for transforming JSON results into tabular formats, diagnosing inconsistencies across fields, and suggesting potential summary statistics for comparing article scores. The AI also provided high-level recommendations for visualizing trends across criteria.
 
-\subsection{Writing Assistance}
+All AI-generated code was carefully reviewed, debugged, and modified by the authors before execution. No analyses were run without manual inspection of the underlying code.
 
-[Document any AI assistance in writing: brainstorming, editing, restructuring, etc.]
+\subsection{A.3 Writing Assistance}
 
-Example: We used Claude/ChatGPT to help with [specific task, e.g., "improving clarity of the abstract" or "suggesting visualizations for our data"].
+AI tools contributed to several stages of the writing process. ChatGPT and Claude were used for:
+\begin{itemize}
+    \item brainstorming outlines for early drafts of each section,
+    \item converting bullet-point notes into coherent academic prose,
+    \item refactoring dense paragraphs for clarity and conciseness,
+    \item suggesting improved transitions between major sections,
+    \item proofreading grammar, structure, and stylistic consistency.
+\end{itemize}
 
-\subsection{Code Development}
+For example, AI was used to propose clearer phrasing in the abstract and to refine the transition between the Methodology and Results sections. All final text was edited, annotated, and approved by the authors.
 
-[If AI helped you write code for data collection or analysis, document it]
+\subsection{A.4 Code Development}
 
-\subsection{Verification}
+AI tools assisted in writing and debugging several components of our Python workflow, including:
+\begin{itemize}
+    \item parsing rubric JSON files and extracting article-level aggregates,
+    \item automating repeated evaluation runs across multiple Wikipedia articles,
+    \item generating intermediate comparison tables,
+    \item producing preliminary visualizations (e.g., bar charts and heatmaps).
+\end{itemize}
 
-[How did you verify AI-generated content? What human oversight did you apply?]
+While AI provided initial drafts of code, the complete pipeline—available in our GitHub repository—was manually tested and revised extensively by the authors to ensure correctness and reproducibility.
 
-All AI-generated content was reviewed, verified against primary sources, and edited by the human author(s). Factual claims were cross-checked with original papers and data.
+\subsection{A.5 Verification}
 
+All AI-generated outputs, whether textual or programmatic, were subject to rigorous human oversight. We applied the following verification steps:
+\begin{enumerate}
+    \item Cross-checking every factual claim from AI against the original Wikipedia pages, academic papers, or dataset sources.
+    \item Manually testing and debugging all AI-generated code to confirm correctness and safety.
+    \item Editing all written content to ensure accuracy, tone consistency, and alignment with course requirements.
+\end{enumerate}
+
+No AI-generated content was included in the final paper without human verification. The authors maintained full responsibility for all analytical interpretations, code decisions, and written arguments presented in this work.

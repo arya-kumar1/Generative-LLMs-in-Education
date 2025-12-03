@@ -229,8 +229,8 @@
       "reason": "The article discusses different formulations, convergence conditions, and related concepts such as analytic functions and error bounds, providing multiple theoretical perspectives."
     },
     "Applications and Impact": {
-      "score": 4,"
-      reason": "The article notes importance in approximation theory, numerical methods, and physics, but could give more concrete real-world examples or stories to convey impact fully."
+      "score": 4,
+      "reason": "The article notes importance in approximation theory, numerical methods, and physics, but could give more concrete real-world examples or stories to convey impact fully."
     }
   },
   "total_score": 33,
@@ -274,8 +274,8 @@
       "reason": "The organization is clear with helpful subheadings, but the dense mathematical language and abstraction limit accessibility for learners without prior algebra experience."
     },
     "Multiple Proofs or Perspectives": {
-      "score": 4,"
-      reason": "The article provides multiple perspectives—algebraic, geometric, permutation-based, symmetry-based—and discusses group actions and historical context, offering conceptual variety even though formal proofs are not included."
+      "score": 4,
+      "reason": "The article provides multiple perspectives—algebraic, geometric, permutation-based, symmetry-based—and discusses group actions and historical context, offering conceptual variety even though formal proofs are not included."
     },
     "Applications and Impact": {
       "score": 4,
@@ -581,7 +581,6 @@
   },
 
   "Arch_Linux": {
-    {
   "criteria": {
     "Engaging Introduction": {
       "score": 3,
@@ -626,8 +625,7 @@
   },
   "total_score": 29,
   "overall_summary": "The Arch Linux article is informative for technically proficient readers, explaining its philosophy, features, and place within the Linux ecosystem. However, it assumes substantial prior knowledge, offers few examples, and lacks visual or intuitive aids that would help beginners. As a learning resource, it works well for intermediate to advanced users but is not highly accessible to newcomers who need more guided explanations, diagrams, and practical examples."
-}
-  },
+},
 
   "Machine_learning": {
     
@@ -638,7 +636,7 @@
     },
     "Real-World Relevance": {
       "score": 5,
-      "reason": "The article highlights numerous applications across business, healthcare, AI systems, robotics, and daily life, strongly conveying ML’s widespread significance."
+      "reason": "The article highlights numerous applications across business, healthcare, AI systems, robotics, and daily life, strongly conveying MLs widespread significance."
     },
     "Motivating Examples": {
       "score": 3,

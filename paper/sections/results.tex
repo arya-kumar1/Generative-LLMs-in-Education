@@ -1,79 +1,87 @@
 \section{Results}
 \label{sec:results}
 
-\subsection{LLM Scoring Outcomes Across Articles}
-Using the ten–dimension instructional rubric, the LLM produced consistent 1--5 scores and
-justifications for each of the curated Wikipedia articles. Articles such as
-\textit{Pythagorean Theorem}, \textit{Golden Ratio}, \textit{Fibonacci Sequence}, and
-\textit{Neural Network} received some of the highest overall scores (4.3--4.7 average)
-due to clear introductions, strong motivating examples, and accessible progression from
-simple cases to general formulations. 
+\subsection{Overview of LLM Scoring Outcomes}
+Using the ten-dimension instructional rubric, the LLM generated structured 1–5 scores for every article in the dataset. These scores were stored as JSON and aggregated into summary statistics and visualizations. Figure~\ref{fig:heatmap} shows a heatmap of rubric scores across all articles and criteria, allowing comparison along both dimensions. Figure~\ref{fig:bar} presents each article’s overall instructional quality score (sum over all ten criteria).
 
-In contrast, technically dense pages such as \textit{Tensor Product},
-\textit{Group (mathematics)}, \textit{Riemann Hypothesis}, and \textit{Eigenvalues and
-Eigenvectors} scored lower (3.0--3.6 average). These articles were penalized for steep
-conceptual jumps, limited intuitive scaffolding, and reliance on symbolic notation without
-preliminary examples.
+Across the corpus, total scores ranged from \textbf{23/50} (\emph{Tensor Product}) to \textbf{44/50} (\emph{Financial Crisis 2008}). Articles that combined motivating context, accessible explanations, and multiple representational formats consistently ranked highest, while symbol-heavy or definition-first mathematical pages scored lower across several rubric dimensions.
 
-Across domains, mathematics and machine learning articles generally outperformed finance
-and economics articles on motivation and example use, whereas socially-oriented pages
-(e.g., \textit{2008 Financial Crisis}) scored highly on real-world relevance but lacked
-multiple representations or visual support.
+\begin{figure}[t]
+    \centering
+    % Adjust the path to your actual image location if needed
+    \includegraphics[width=\linewidth]{../figures/heatmap.png}
+    \caption{Rubric scores (1--5) for each article across the ten instructional criteria. Brighter colors indicate higher scores.}
+    \label{fig:heatmap}
+\end{figure} 
 
-\subsection{Consistency and Validation Checks}
-To validate the evaluations, each article was scored three times. Most articles had low
-variance (standard deviation $< 0.3$), indicating strong scoring stability. A small number
-of pages—especially symbol-heavy math pages—showed the highest variance, reflecting the
-LLM’s sensitivity to presentation style when content is dense.
+\subsection{Patterns by Criterion (Heatmap Analysis)}
+The heatmap in Figure~\ref{../figures/heatmap} reveals several strong, consistent trends.
 
-Human spot-checks generally aligned with the model’s judgments. Reviewers agreed with the
-LLM on whether an article had motivating examples, real-world connections, or a clear
-introductory section. Discrepancies occurred primarily when the model interpreted symbolic
-expressions as “visual support” even when no diagrams were present, or when it inferred
-historical context from brief mentions.
+\paragraph{High-scoring criteria.}
+Across nearly all 20 articles, the following criteria tended to score the highest:
+\emph{Applications and Impact}, \emph{Real-World Relevance}, and \emph{Engaging Introduction}. These dimensions were particularly strong for articles in finance (e.g., \emph{2008 Financial Crisis}), computer science (e.g., \emph{Machine Learning}, \emph{Artificial Intelligence}), and foundational mathematics (e.g., \emph{Pythagorean Theorem}). These pages reliably opened with motivating context and explicit explanations of why the topic matters.
 
-\subsection{Qualitative Patterns in Strong vs. Weak Articles}
-The LLM justifications revealed recurring patterns in how “good for learning’’ articles
-distinguished themselves:
+\paragraph{Criteria with high variability.}
+Some rubric dimensions exhibited substantial variation across articles, especially \emph{Multiple Proofs or Perspectives}, \emph{Visual and Symbolic Support}, and \emph{Motivating Examples}. Articles like \emph{Pythagorean Theorem}, \emph{Fibonacci Sequence}, and \emph{Integral} provide several worked examples and diagrams, leading to consistently high scores. In contrast, pages such as \emph{Tensor Product}, \emph{Group (mathematics)}, and \emph{Vector Space} rarely introduce examples early, resulting in scores as low as 1--2 on these dimensions.
 
+\paragraph{Lowest-scoring criteria.}
+The weakest criteria overall were \emph{Multiple Proofs or Perspectives} and \emph{Multiple Representations (verbal, symbolic, visual)}. Only a subset of articles---notably \emph{Pythagorean Theorem}---offered multiple derivations or explanatory approaches. Most mathematical pages relied heavily on symbolic notation with minimal visual scaffolding, reducing accessibility for non-expert readers.
+
+\begin{figure}[t]
+    \centering
+    % Adjust the path to your actual image location if needed
+    \includegraphics[width=\linewidth]{../figures/bar.png}
+    \caption{Overall instructional quality scores (sum over 10 criteria) for each Wikipedia article. Higher bars correspond to articles judged more effective for learning.}
+    \label{fig:bar}
+\end{figure}
+
+\subsection{Overall Article Rankings (Bar Chart Analysis)}
+Figure~\ref{fig:bar} ranks articles by their total rubric score (maximum 50), making it easier to compare overall educational quality.
+
+\paragraph{Highest-scoring articles (39--44 points).}
+The strongest pages include \emph{Financial Crisis 2008}, \emph{Integral}, \emph{Derivative}, \emph{Artificial Intelligence}, and \emph{Neural Network (machine learning)}. These articles scored well across nearly every criterion. Common strengths include:
 \begin{itemize}
-    \item \textbf{Motivation and narrative matter.}
-    Articles with brief historical background or motivating context (e.g., \textit{Golden
-    Ratio}, \textit{Fibonacci Sequence}) received higher scores in engagement and clarity.
-
-    \item \textbf{Examples are a dominant signal.}
-    Articles introducing examples early—especially geometric or numerical ones—were
-    consistently rated higher in accessibility and progression.
-
-    \item \textbf{High-notation pages struggle without scaffolding.}
-    Articles like \textit{Tensor Product} or \textit{Group (mathematics)} were penalized for
-    immediately using abstract definitions or formal symbols without intuitive lead-ins.
-
-    \item \textbf{Real-world relevance improves scores.}
-    Pages connecting concepts to real applications (e.g., \textit{Fourier Transform},
-    \textit{2008 Financial Crisis}, \textit{Machine Learning}) reliably scored high on
-    relevance and engagement.
-
-    \item \textbf{Multiple representations boost scores.}
-    Articles combining text, equations, and diagrams substantially outperformed those that
-    relied on only one form—confirming multimodal support as a strong indicator of
-    learnability.
+    \item clear motivating introductions grounded in context or history,
+    \item rich examples and applications, and
+    \item multimodal presentation (graphs, equations, diagrams, and narrative explanation).
 \end{itemize}
 
-\subsection{Summary of Findings}
-Overall, the LLM’s evaluations reveal a clear pattern:  
-Wikipedia articles rated as “good for learning’’ tend to include:
+\paragraph{Mid-scoring articles (33--38 points).}
+Articles such as \emph{Fourier Transform}, \emph{Machine Learning}, \emph{Taylor Series}, and \emph{Divergence} fall into a middle band. These pages are generally well written but lose points on:
+\begin{itemize}
+    \item accessibility for beginners,
+    \item heavy reliance on notation, and
+    \item lack of multiple perspectives or proofs.
+\end{itemize}
 
+\paragraph{Lowest-scoring articles (23--30 points).}
+The weakest articles include \emph{Tensor Product}, \emph{Group (mathematics)}, \emph{Riemann Hypothesis}, and \emph{Vector Space}. These pages share several features:
+\begin{itemize}
+    \item definition-first structure with little or no motivating context,
+    \item dense formal notation without intuitive scaffolding,
+    \item few or no concrete examples, and
+    \item minimal visual support beyond symbols.
+\end{itemize}
+These characteristics make them challenging as stand-alone learning resources, even though they may be formally correct.
+
+\subsection{Consistency and Human Validation}
+To assess reliability, each article was scored multiple times by the LLM. Most articles exhibited low variance across runs (standard deviation $< 0.3$), indicating stable evaluations. Symbol-heavy mathematical pages (e.g., \emph{Tensor Product}) showed the highest variance, likely because missing examples or diagrams force the model to rely more heavily on subtle prompt or phrasing differences.
+
+Human spot-checks of the LLM’s justifications generally aligned with the automated judgments. Reviewers agreed with the model on whether an article had motivating examples, real-world connections, or a clear introductory section. Discrepancies occurred primarily when:
+\begin{itemize}
+    \item the model interpreted symbolic equations as ``visual support'' even in the absence of diagrams, or
+    \item inferred historical context from brief textual hints.
+\end{itemize}
+Despite these edge cases, the strong overall agreement supports the use of rubric-guided LLM scoring for broad judgments of educational quality.
+
+\subsection{Summary of Key Findings}
+Taken together, the quantitative scores and qualitative justifications reveal a consistent pattern. Wikipedia articles judged ``good for learning'' tend to:
 \begin{enumerate}
-    \item a motivating and approachable introduction,
-    \item intuitive examples before formal definitions,
-    \item multiple ways of presenting core ideas (equations, diagrams, verbal explanation),
-    \item a progression from concrete cases to general concepts, and
-    \item explicit connections to real-world applications.
+    \item begin with a motivating and approachable introduction,
+    \item provide intuitive examples before formal definitions,
+    \item present ideas through multiple representations (equations, diagrams, narrative text),
+    \item progress gradually from concrete instances to general concepts, and
+    \item highlight applications and real-world impact.
 \end{enumerate}
 
-Articles lacking these elements—particularly those that are highly symbolic or definition-first—tend to be rated as less effective for learning.
-
-These results demonstrate that a rubric-guided, prompt-engineered LLM can meaningfully and
-reliably differentiate between strong and weak educational articles, suggesting a promising
-direction for AI-assisted evaluation of open-access learning resources.
+Conversely, articles that are highly symbolic, definition-first, or lacking in examples and context tend to be rated as less effective for learning. These results suggest that a rubric-guided, prompt-engineered LLM can meaningfully differentiate between strong and weak educational articles and could be used as an assistive tool for improving open-access learning resources such as Wikipedia.
